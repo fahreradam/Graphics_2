@@ -1,0 +1,26 @@
+layout( std140, row_major, binding=0 ) uniform Uniforms {
+    mat4 worldMatrix;
+    mat4 viewMatrix;
+    mat4 projMatrix;
+    float animationFrame;
+    float alphaFactor;
+    vec3 eyePos;
+    vec3 attenuation;
+    float focalrange;
+      
+    #define MAX_LIGHTS 24
+    vec4 lightPositionsAndDirectionalFlag[MAX_LIGHTS];
+    vec4 spotDirectionsAndCosineSpotEdgeStarts[MAX_LIGHTS];
+    vec4 lightColorsAndCosineSpotAngleCutoffs[MAX_LIGHTS];
+
+    #define MAX_BLUR_RADIUS 32
+    vec2 blurDeltas;
+    int blurRadius;
+    float blurWeights[MAX_BLUR_RADIUS];
+
+    float blurSlice;
+
+    float forceColorFlag;
+    vec4 forceColor;
+    float testDepth;
+};

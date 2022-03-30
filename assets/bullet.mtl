@@ -1,0 +1,3 @@
+newmtl mymaterial
+
+map_Kd bullet.png
