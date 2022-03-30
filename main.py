@@ -25,6 +25,7 @@ from Framebuffer import Framebuffer
 from Blurrer import Blurrer
 from ImageTextureCube import ImageTextureCube
 from BillboardManager import *
+from ParticleSystem import ParticleSystem
 
 
 def main():
@@ -90,6 +91,7 @@ def setup(globs):
             R.uniform(-10, 10))
         )
     globs.billboards = BillboardManager(p, ImageTexture2DArray("nova.png"))
+    globs.particle = ParticleSystem(512, vec3(0,1,0), "nova.png")
 
     # bumpSamlper =
     clampSampler = ClampSampler()
@@ -237,6 +239,9 @@ def draw(globs):
     Program.setUniform("focalrange", globs.focalRange)
     Program.setUniform("testDepth", 0.0)
     globs.indoormap.bind(7)
+    globs.particle.draw()
+
+    globs.billboards.draw()
 
 
 
@@ -298,7 +303,6 @@ def draw(globs):
     globs.meshes[0].draw(toDraw=globs.translucentitems)
 
     glStencilFunc(GL_ALWAYS, 0, 0xff)
-    globs.billboards.draw()
 
     globs.skyboxprog.use()
     globs.skyboxTexture.bind(7)

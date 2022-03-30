@@ -21,3 +21,9 @@ class BufferTexture:
         glBindTexture(GL_TEXTURE_BUFFER,self.tex)
     def bindBuffer(self,target=GL_TEXTURE_BUFFER):
         glBindBuffer(target, self.buff )
+
+    def bindImage(self, idx):
+        glBindImageTexture(idx, self.tex,
+                           0, 0, 0,  # mipLevel, isLayered, layerNum
+                           GL_READ_WRITE,  # permissions
+                           self.fmt)
