@@ -82,16 +82,8 @@ def setup(globs):
     globs.blurrer_senciel = Blurrer(globs.fbo2, 8)
     globs.skyboxprog = Program(vs="skyboxvs.txt", fs="skyboxfs.txt")
 
-    p=[]
-    R = random.Random(42)
-    for i in range(512):
-        p.append(vec3(
-            R.uniform(-10, 10),
-            R.uniform(-2, 2),
-            R.uniform(-10, 10))
-        )
-    globs.billboards = BillboardManager(p, ImageTexture2DArray("nova.png"))
-    globs.particle = ParticleSystem(512, vec3(0,1,0), "nova.png")
+
+    globs.particle = ParticleSystem(512, vec3(-8.95, 0.11, -1.45), ImageTexture2DArray("nova.png"))
 
     # bumpSamlper =
     clampSampler = ClampSampler()
@@ -238,10 +230,9 @@ def draw(globs):
     Program.setUniform("worldMatrix", mat4.identity())
     Program.setUniform("focalrange", globs.focalRange)
     Program.setUniform("testDepth", 0.0)
+    Program.setUniform("elapsed", 0.0)
     globs.indoormap.bind(7)
-    globs.particle.draw()
 
-    globs.billboards.draw()
 
 
 
@@ -303,6 +294,10 @@ def draw(globs):
     globs.meshes[0].draw(toDraw=globs.translucentitems)
 
     glStencilFunc(GL_ALWAYS, 0, 0xff)
+
+
+    globs.particle.draw()
+
 
     globs.skyboxprog.use()
     globs.skyboxTexture.bind(7)

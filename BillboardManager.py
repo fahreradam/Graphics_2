@@ -3,6 +3,8 @@ from gl import *
 from glconstants import *
 from Program import Program
 from BufferTexture import BufferTexture
+from ImageTexture2DArray import ImageTexture2DArray
+
 
 class BillboardManager:
     prog = None
@@ -11,6 +13,7 @@ class BillboardManager:
     # centers = list of vec3
     def __init__(self, centers, texture):
         assert len(centers) % BillboardManager.CHUNK_SIZE == 0
+        assert isinstance(texture, ImageTexture2DArray)
         self.numInstances = len(centers) // BillboardManager.CHUNK_SIZE
 
         if BillboardManager.prog == None:
@@ -54,18 +57,18 @@ class BillboardManager:
 
     def draw(self):
         glDepthMask(0)
-        glBlendFunc(GL_SRC_ALPHA, GL_ONE)
+        #glBlendFunc(GL_SRC_ALPHA, GL_ONE)
 
         oldprog = Program.current
         BillboardManager.prog.use()
         self.tex.bind(0)
         self.bufftex.bindTexture(8)
         glDrawElementsInstancedBaseVertex(
-            GL_TRIANGLES, BillboardManager.CHUNK_SIZE*6,
+            GL_TRIANGLES, BillboardManager.CHUNK_SIZE * 6,
             GL_UNSIGNED_INT, self.indexStart,
-            self.numInstances, self.vertexOffset )
+            self.numInstances, self.vertexOffset)
         if oldprog:
             oldprog.use()
 
-        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA)
+        #glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA)
         glDepthMask(1)

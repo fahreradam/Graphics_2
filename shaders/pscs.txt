@@ -12,6 +12,7 @@ void main(){
     pos.xyz = pos.xyz + elapsed*vel.xyz;
     //-0.01 = gravity
     vel.xyz = vel.xyz + elapsed* vec3(0,-0.01,0);
+    pos.w -= elapsed;
     imageStore( posData, int(id.x), pos );
     imageStore( velData, int(id.x), vel );
 }

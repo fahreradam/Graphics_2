@@ -7,12 +7,15 @@ layout(location=2) in vec3 normal;
 layout(binding=8) uniform samplerBuffer bbcenters;
 
 out vec2 v_texcoord;
+out float v_lifeLeft;
 
 void main(){
     int n1 = int(position.x);
     int n = gl_InstanceID * BATCH_SIZE + n1;
 
     vec4 p;
+    v_lifeLeft=p.w;
+    p.w=1.0;
     p.xyz = texelFetch(bbcenters, n).xyz;
     p.w=1.0;
     p = p * viewMatrix;

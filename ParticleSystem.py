@@ -31,8 +31,16 @@ class ParticleSystem:
                            1
                            ] * self.numParticles
                           )
+        for i in range(3, len(tmp), 4):
+            tmp[i] = random.uniform(1.5, 5)
 
-        self.bbmanager.bufftex.bindBuffer(GL_ARRAY_BUFFER)
+            self.bbmanager.bufftex.bindBuffer(GL_ARRAY_BUFFER)
+            glBufferSubData(GL_ARRAY_BUFFER,
+            0, self.numParticles * 16,
+            array.array("f", tmp))
+
+
+            self.bbmanager.bufftex.bindBuffer(GL_ARRAY_BUFFER)
 
         glBufferSubData(GL_ARRAY_BUFFER,
                         0,  # starting offset
@@ -70,3 +78,9 @@ class ParticleSystem:
         glDeleteSync(sync)
         if oldprog:
             oldprog.use()
+
+    def draw(self):
+        # glBlendFunc(GL_SRC_ALPHA, GL_ONE)
+        self.bbmanager.draw()
+        # glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA)
+
