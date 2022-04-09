@@ -32,15 +32,15 @@ class ParticleSystem:
                            ] * self.numParticles
                           )
         for i in range(3, len(tmp), 4):
-            tmp[i] = random.uniform(1.5, 5)
+            tmp[i] = random.uniform(.1, 1.2)
 
-            self.bbmanager.bufftex.bindBuffer(GL_ARRAY_BUFFER)
-            glBufferSubData(GL_ARRAY_BUFFER,
-            0, self.numParticles * 16,
-            array.array("f", tmp))
+        self.bbmanager.bufftex.bindBuffer(GL_ARRAY_BUFFER)
+        glBufferSubData(GL_ARRAY_BUFFER,
+        0, self.numParticles * 16,
+        array.array("f", tmp))
 
 
-            self.bbmanager.bufftex.bindBuffer(GL_ARRAY_BUFFER)
+        self.bbmanager.bufftex.bindBuffer(GL_ARRAY_BUFFER)
 
         glBufferSubData(GL_ARRAY_BUFFER,
                         0,  # starting offset
@@ -49,9 +49,9 @@ class ParticleSystem:
                         )
         tmp = array.array("f", [])
         for i in range(self.numParticles):
-            v = vec3(random.uniform(-0.5, 0.5),
-                     random.uniform(0, 1),
-                     random.uniform(-0.5, 0.5))
+            v = vec3(random.uniform(-0.05, 0.02),
+                     random.uniform(.2, 1),
+                     random.uniform(-0.05, 0.02))
             # optional: Normalize v
             tmp.append(v.x)
             tmp.append(v.y)

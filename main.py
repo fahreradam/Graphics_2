@@ -78,12 +78,11 @@ def setup(globs):
     globs.fbo2 = Framebuffer(512, 512, GL_RGBA8)
     globs.fsq = FullScreenQuad()
     globs.fboprog = Program(vs="fbovs.txt", fs="fbofs.txt")
-    #globs.blurrer = Blurrer(globs.fboblurry, 12)
+    # globs.blurrer = Blurrer(globs.fboblurry, 12)
     globs.blurrer_senciel = Blurrer(globs.fbo2, 8)
     globs.skyboxprog = Program(vs="skyboxvs.txt", fs="skyboxfs.txt")
 
-
-    globs.particle = ParticleSystem(512, vec3(-8.95, 0.11, -1.45), ImageTexture2DArray("nova.png"))
+    globs.particle = ParticleSystem(512, vec3(-8.95, 0.2, -1.45), ImageTexture2DArray("smoke.png"))
 
     # bumpSamlper =
     clampSampler = ClampSampler()
@@ -178,6 +177,8 @@ def update(elapsed, globs):
     if keycode.SDLK_f in globs.keys:
         globs.camera.strafeXYZ(0, -elapsed, 0)
 
+    globs.particle.update(elapsed)
+
 
 def pumpEvents(globs):
     ev = sdl2.SDL_Event()
@@ -219,7 +220,7 @@ def draw(globs):
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT)
     glStencilFunc(GL_ALWAYS, 1, ~0)
     glStencilOp(GL_KEEP, GL_KEEP, GL_KEEP)
-    #globs.fbosharp.setAsRenderTarget(True)
+    # globs.fbosharp.setAsRenderTarget(True)
     BufferManager.bind()
     globs.prog.use()
     globs.camera.setUniforms()
@@ -232,9 +233,6 @@ def draw(globs):
     Program.setUniform("testDepth", 0.0)
     Program.setUniform("elapsed", 0.0)
     globs.indoormap.bind(7)
-
-
-
 
     glStencilFunc(GL_ALWAYS, 0, 0xff)
     glStencilOp(GL_KEEP, GL_KEEP, GL_KEEP)
@@ -260,7 +258,7 @@ def draw(globs):
     Program.setUniform("testDepth", 1.0)
     globs.meshes[0].draw(toDraw=globs.nontranslucentitems)
     Program.setUniform("testDepth", 0.0)
-    globs.fbo1.depthtexture.unbind(15)
+    # globs.fbo1.depthtexture.unbind(15)
 
     globs.fbo2.unsetAsRenderTarget()
 
@@ -268,9 +266,8 @@ def draw(globs):
 
     glStencilFunc(GL_ALWAYS, 0, 0xff)
     glStencilOp(GL_KEEP, GL_KEEP, GL_KEEP)
-    #globs.blurrer.blur(0)
+    # globs.blurrer.blur(0)
     globs.blurrer_senciel.blur(0)
-
 
     glStencilFunc(GL_ALWAYS, 1, 0xff)
     glStencilOp(GL_KEEP, GL_KEEP, GL_REPLACE)
@@ -295,9 +292,7 @@ def draw(globs):
 
     glStencilFunc(GL_ALWAYS, 0, 0xff)
 
-
     globs.particle.draw()
-
 
     globs.skyboxprog.use()
     globs.skyboxTexture.bind(7)
@@ -310,7 +305,7 @@ def draw(globs):
     #                   0, 0, globs.fboblurry.w, globs.fboblurry.h,
     #                   GL_COLOR_BUFFER_BIT,
     #                   GL_NEAREST)
-    #globs.fboblurry.unsetAsRenderTarget()
+    # globs.fboblurry.unsetAsRenderTarget()
 
     # globs.fboprog.use()
     # globs.fbosharp.texture.bind(0)

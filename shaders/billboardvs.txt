@@ -14,13 +14,12 @@ void main(){
     int n = gl_InstanceID * BATCH_SIZE + n1;
 
     vec4 p;
+    p.xyzw = texelFetch(bbcenters, n).xyzw;
     v_lifeLeft=p.w;
     p.w=1.0;
-    p.xyz = texelFetch(bbcenters, n).xyz;
-    p.w=1.0;
     p = p * viewMatrix;
-    p.x += 2.0*(texcoord.x-0.5)*normal.x;
-    p.y += 2.0*(texcoord.y-0.5)*normal.y;
+    p.x += 0.1*(texcoord.x-0.5)*normal.x;
+    p.y += 0.1*(texcoord.y-0.5)*normal.y;
     p = p*projMatrix;
     gl_Position = p;
     v_texcoord = texcoord;

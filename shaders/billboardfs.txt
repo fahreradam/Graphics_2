@@ -10,5 +10,4 @@ void main(){
 
     //start fade-out at one-half second
     color.a *= smoothstep(0.0,0.5,v_lifeLeft);
-
 }
