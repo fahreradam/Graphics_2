@@ -25,4 +25,13 @@ layout( std140, row_major, binding=0 ) uniform Uniforms {
     float forceColorFlag;
     vec4 forceColor;
     float testDepth;
+
+
+    mat4 lightViewMatrix;
+    mat4 lightProjMatrix;
+    vec3 lightEyePos;
+    vec3 lightHitherYon; //hither, yon, yon-hither
+    vec3 lightDirection;
+
+    float doingShadows; //0=false, 1=true
 };

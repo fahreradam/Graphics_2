@@ -12,12 +12,15 @@ out vec3 v_worldpos;
 out vec4 v_tangent;
 out vec2 b_texcoord;
 
+out float v_eyeDist;
+
 void main(){
 
 
 
     vec4 p = vec4(position.xyz,1.0);
     p = p * worldMatrix;
+    v_eyeDist = v_eyeDist * -p.z;
     v_worldpos = p.xyz;
     p = p * viewMatrix;
     p = p * projMatrix;

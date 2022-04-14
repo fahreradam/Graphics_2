@@ -4,9 +4,10 @@ in vec3 v_normal;
 in vec3 v_worldpos;
 in vec4 v_tangent;
 in vec2 b_texcoord;
+in float v_eyeDist;
 
-#define AMBIENT_UP vec3(0.1,0.1,0.1)
-#define AMBIENT_DOWN vec3(0.2,0.2,0.2)
+#define ambientColor1 vec3(0.1,0.1,0.1)
+#define ambientColor2 vec3(0.2,0.2,0.2)
 
 
 
@@ -16,6 +17,7 @@ layout(binding=1) uniform sampler2DArray emittex;
 layout(binding=2) uniform sampler2DArray bumpmapTexture;
 layout(binding=3) uniform sampler2DArray metallicityRoughnessTexture;
 layout(binding=7) uniform samplerCube envMap;
+layout(binding=10) uniform sampler2DArray shadowBuffer;
 layout(binding=15) uniform sampler2DArray depthtex;
 
 
@@ -54,139 +56,95 @@ vec3 schlickSpecular( vec3 F, float cos_phi, float cos_psi,
     return cos_theta_i * F * V * D;
 }
 
+float lambert(vec3 L, vec3 N ){
+    float diffuse = dot(L,N);
+    diffuse = max( 0.0, diffuse );
+    return diffuse;
+}
+
+float phong(vec3 V, vec3 R){
+    float specular = dot(V,R);
+    specular = max(specular,0.0);
+    specular = pow(specular,16.0);
+    return specular;
+}
+
+void applyLighting(
+    vec3 baseColor,
+    vec3 lightPosition,
+    vec3 spotDirection,
+    vec3 lightColor,
+    float cosineSpotEdgeStart,
+    float cosineSpotAngleCutoff,
+    vec4 attenuationsAndSpecular,
+    vec3 N,
+    vec3 V,
+    inout vec3 totalillum)
+{
+    //compute some geometric parameters
+
+    //vector from point to light
+    vec3 L = ( lightPosition - v_worldpos);
+    float lightDistance = length(L);
+    L /= lightDistance;
+
+    //direction of maximum specularity
+    vec3 R = reflect(-L,N);
+
+
+    //diffuse and specular computation
+    float dp = lambert(L, N);
+    float sp = phong(L, R);
+
+    //apply distance attenuation + spotlight cone attenuation
+    vec3 attenuation = attenuationsAndSpecular.xyz;
+    float A = 1.0/(attenuation[0] +
+        attenuation[1]*lightDistance +
+        attenuation[2]*lightDistance*lightDistance);
+    A = min(1.0,A);
+
+    float cosineTheta = dot(-L,spotDirection);
+    float spotAttenuation = smoothstep(
+        cosineSpotAngleCutoff, cosineSpotEdgeStart, cosineTheta);
+
+    dp *= A;
+    dp *= spotAttenuation;
+    sp *= A;
+    sp *= spotAttenuation;
+
+    //some lights are only there to prevent scene from appearing "too dark"
+    //we don't apply specular to those lights. This is a hack,
+    //and it's not physically based
+    sp *= attenuationsAndSpecular.w;
+
+    totalillum += dp*lightColor;
+    totalillum += sp*lightColor;
+}
+
 
 void main(){
-    if(forceColorFlag != 0.0)
-    {
-    color = forceColor;
-    return;
-    }
-    if( testDepth != 0.0 ){
-        float d = texelFetch( depthtex,
-                ivec3(gl_FragCoord.xy,0), 0 ).r;
-        if( gl_FragCoord.z < d ){
-            discard;
-            return;
-        }
-    }
-
-
+    vec4 baseColor = texture(tex, vec3( v_texcoord,0.0) );
 
     vec3 N = normalize(v_normal);
+    vec3 V = normalize( eyePos.xyz - v_worldpos );
 
-
-    vec4 b = texture( bumpmapTexture, vec3(b_texcoord,0.0) );
-
-    vec4 metallicityRoughness = texture(
-                                        metallicityRoughnessTexture,
-                                        vec3(v_texcoord,0.0));
-
-    float metallicity = texture(metallicityRoughnessTexture, vec3(v_texcoord, 0.0)).b;
-    vec3 V = normalize( eyePos - v_worldpos);
-    vec3 VR = reflect(-V, N);
-
-
-
-
-    if( v_tangent.w != 0.0 ){
-        vec3 T = v_tangent.xyz;
-        T = T-dot(T,N) * N;
-        T = normalize(T);
-        vec3 B = cross(N,T);
-
-        B = normalize(B);
-
-        mat3 M = mat3(T.x, B.x, N.x,
-                      T.y, B.y, N.y,
-                      T.z, B.z, N.z);
-
-        vec3 beta = (2.0 * (b.rgb - vec3(0.5)));
-        N = beta * M;
-
-
-    }
-    N = (vec4(N,0.0) * worldMatrix).xyz;
-    N = normalize(N);
-
-    //surface normal
-    //vec3 N = normalize(v_normal);
-    
-    //vector from surface to viewer
-
-    vec3 ambient = mix( AMBIENT_DOWN, AMBIENT_UP, 0.5*(N.y+1.0));
-
-    color = texture(tex, vec3(v_texcoord, 0.0));
-    vec3 totaldiffuse = vec3(0);
-    vec3 totalspecular = vec3(0);
-    
+    float mappedY = 0.5*(N.y + 1.0);
+    vec3 ambientColor = mix(
+            ambientColor1, ambientColor2, mappedY);
+    ambientColor *= baseColor.rgb;
+    vec3 totalillum = vec3(0,0,0);
     for(int i=0;i<MAX_LIGHTS;++i){
-        
-        //unpack data from uniforms
-        vec3 lightPosition = lightPositionsAndDirectionalFlag[i].xyz;
-        float positionalOrDirectional = lightPositionsAndDirectionalFlag[i].w;
-        vec3 spotDirection = spotDirectionsAndCosineSpotEdgeStarts[i].xyz;
-        float cosineSpotEdgeStart = spotDirectionsAndCosineSpotEdgeStarts[i].w;
-        vec3 lightColor = lightColorsAndCosineSpotAngleCutoffs[i].xyz;
-        float cosineSpotAngleCutoff = lightColorsAndCosineSpotAngleCutoffs[i].w;
-        
-        //vector from surface to light
-        vec3 L = lightPosition - v_worldpos;
-        float lightDistance = length(L);
-        L /= lightDistance;
-
-        //reflection vector of light
-        vec3 R = reflect(-L,N);
-
-        vec3 H = L+V;
-        H = normalize(H);
-        float mu = metallicityRoughness.b;
-        vec3 F0 = mix( vec3(0.04), color.rgb, mu );
-        float cos_phi = max(0, dot(V,H));
-        float cos_psi = max(0, dot(N,H));
-        float cos_theta_i = max(0, dot(N,L));
-        float cos_theta_o = max(0, dot(N,V));
-        float rho = metallicityRoughness.g;
-
-        vec3 F = schlickFresnel(F0, cos_phi, color.rgb, mu);
-        vec3 diffuse = schlickDiffuse(F, cos_phi, mu, color.rgb, cos_theta_i);
-        vec3 specular = schlickSpecular(F, cos_phi, cos_psi, color.rgb, cos_theta_i, cos_theta_o, rho, mu);
-
-
-        //attenuation
-        float A = 1.0/(attenuation[0] + lightDistance*(attenuation[1] + lightDistance*attenuation[2]));
-        A=min(A,1.0);
-        diffuse *= A;
-        specular *= A;
-        
-        //spotlight cutoff
-        float cosineTheta = dot(-L,spotDirection);
-        float spotAttenuation = smoothstep( 
-                        cosineSpotAngleCutoff, 
-                        cosineSpotEdgeStart, 
-                        cosineTheta);
-        diffuse *= spotAttenuation;
-        specular *= spotAttenuation;
-        
-        
-        //add to running total
-        totaldiffuse += diffuse*lightColor;
-        totalspecular += specular*lightColor;
+        applyLighting(
+            baseColor.rgb,
+            lightPositionsAndDirectionalFlag[i].xyz,
+            spotDirectionsAndCosineSpotEdgeStarts[i].xyz,
+            lightColorsAndCosineSpotAngleCutoffs[i].xyz,
+            spotDirectionsAndCosineSpotEdgeStarts[i].w,
+            lightColorsAndCosineSpotAngleCutoffs[i].w,
+            attenuation,
+            N,V,
+            totalillum );
     }
-
-
-
-   
-    //combine texture + emission
-    vec3 texcoord = vec3(v_texcoord, animationFrame);
-    vec4 texc = texture( tex, texcoord );
-    vec3 etexc = texture( emittex, texcoord).rgb;
-    if( any( notEqual(etexc,vec3(0.0))))
-        color.rgb = etexc;
-    else
-        color.rgb = (ambient+totaldiffuse)*texc.rgb + totalspecular;
-    color.a = texc.a * alphaFactor;
-
-    vec3 reflColor = texture(envMap, VR, metallicityRoughness.g * 25).rgb;
-    color.rgb += (1-metallicityRoughness.g) * metallicityRoughness.b * reflColor.rgb;
-
+    color.rgb = ambientColor + totalillum;
+    color.a = baseColor.a;
 }

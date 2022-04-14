@@ -13,7 +13,7 @@ import ctypes
 import BufferManager
 import math
 from Program import Program
-from Sampler import MipSampler, NearestSampler, ClampSampler
+from Sampler import MipSampler, NearestSampler, ClampSampler, LinearClampSampler
 from ImageTexture2DArray import ImageTexture2DArray
 from math2801 import *
 from Camera import Camera
@@ -71,6 +71,7 @@ def setup(globs):
                          fs="fs.txt")
 
     globs.camera = Camera(vec3(0, 1, 2), vec3(0, 1, 0), vec3(0, 1, 0))
+
     # globs.fbosharp = Framebuffer(512, 512, GL_RGBA8)
     # globs.fboblurry = Framebuffer(512, 512, GL_RGBA8)
 
@@ -82,9 +83,23 @@ def setup(globs):
     globs.blurrer_senciel = Blurrer(globs.fbo2, 8)
     globs.skyboxprog = Program(vs="skyboxvs.txt", fs="skyboxfs.txt")
 
+    globs.shawdowBuffer = Framebuffer(512, 512, GL_R32F)
+
     globs.particle = ParticleSystem(512, vec3(-8.95, 0.2, -1.45), ImageTexture2DArray("smoke.png"))
 
-    # bumpSamlper =
+    globs.TEST_lightPos = vec3(4.75, 3, -1.3)
+    globs.TEST_lightDir = vec3(0, -1, 0)
+    globs.TEST_lightUp = vec3(0, 0, -1)
+
+    globs.lightCamera = Camera(
+        eye=globs.TEST_lightPos,
+        coi=globs.TEST_lightPos + globs.TEST_lightDir,
+        up=globs.TEST_lightUp,
+        fov=45,
+        hither=0.1,
+        yon=10
+    )
+
     clampSampler = ClampSampler()
     clampSampler.bind(14)
     mipSampler = MipSampler()
@@ -92,6 +107,9 @@ def setup(globs):
     mipSampler.bind(1)  # emission texture
     mipSampler.bind(2)
     mipSampler.bind(3)  # metallicity/roughness
+
+    globs.linearclampsamp = LinearClampSampler()
+    globs.linearclampsamp.bind(10)
 
     nearestSampler = NearestSampler()
     nearestSampler.bind(15)
@@ -216,87 +234,122 @@ def pumpEvents(globs):
                 globs.camera.pitch(-0.005 * ev.motion.yrel)
 
 
+def drawObjects(globs):
+    Program.setUniform("worldMatrix", mat4.identity())
+    for m in globs.meshes:
+        m.draw()
+
+
 def draw(globs):
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT)
-    glStencilFunc(GL_ALWAYS, 1, ~0)
-    glStencilOp(GL_KEEP, GL_KEEP, GL_KEEP)
-    # globs.fbosharp.setAsRenderTarget(True)
+    Program.setUniform("lightViewMatrix",
+                       globs.lightCamera.viewMatrix)
+    Program.setUniform("lightProjMatrix",
+                       globs.lightCamera.projMatrix)
+    Program.setUniform("lightEyePos",
+                       globs.lightCamera.eye.xyz)
+    Program.setUniform("lightDirection",
+                       globs.lightCamera.look.xyz)
+    Program.setUniform("lightHitherYon",
+                       vec3(globs.lightCamera.hither,
+                            globs.lightCamera.yon,
+                            globs.lightCamera.yon - globs.lightCamera.hither)
+                       )
+
+    glClearColor(1, 1, 1, 1)
+    globs.shadowBuffer.setAsRenderTarget(True)
+    globs.lightCamera.setUniforms()
     BufferManager.bind()
     globs.prog.use()
+    Program.setUniform("doingShadows", 1)
+    drawObjects(globs)
+    globs.shadowBuffer.unsetAsRenderTarget()
+
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
+    Program.setUniform("doingShadows", 0)
+    globs.shadowBuffer.texture.bind(10)
     globs.camera.setUniforms()
-    Program.setUniform("forceColorFlag", 0.0)
-    Program.setUniform("forceColor", vec4(0.0, 0.0, 0.0, 0.0))
-    Program.setUniform("alphaFactor", 1.0)
-    Program.setUniform("animationFrame", 1.0)
-    Program.setUniform("worldMatrix", mat4.identity())
-    Program.setUniform("focalrange", globs.focalRange)
-    Program.setUniform("testDepth", 0.0)
-    Program.setUniform("elapsed", 0.0)
-    globs.indoormap.bind(7)
+    drawObjects(globs)
 
-    glStencilFunc(GL_ALWAYS, 0, 0xff)
-    glStencilOp(GL_KEEP, GL_KEEP, GL_KEEP)
-
-    globs.fbo1.setAsRenderTarget(True)
-    globs.meshes[0].draw(toDraw=globs.translucentitems)
-    globs.fbo1.unsetAsRenderTarget()
-
-    globs.fbo2.setAsRenderTarget(True)
-    glColorMask(0, 0, 0, 0)
-    glDepthMask(0)
-    glStencilFunc(GL_ALWAYS, 1, 0xff)
-    glStencilOp(GL_KEEP, GL_KEEP, GL_REPLACE)
-    globs.meshes[0].draw(toDraw=globs.translucentitems)
-
-    glColorMask(1, 1, 1, 1)
-    glDepthMask(1)
-
-    glStencilFunc(GL_EQUAL, 1, 0xff)
-    glStencilOp(GL_KEEP, GL_KEEP, GL_KEEP)
-
-    globs.fbo1.depthtexture.bind(15)
-    Program.setUniform("testDepth", 1.0)
-    globs.meshes[0].draw(toDraw=globs.nontranslucentitems)
-    Program.setUniform("testDepth", 0.0)
-    # globs.fbo1.depthtexture.unbind(15)
-
-    globs.fbo2.unsetAsRenderTarget()
-
-    # globs.fbo2.dump("test")
-
-    glStencilFunc(GL_ALWAYS, 0, 0xff)
-    glStencilOp(GL_KEEP, GL_KEEP, GL_KEEP)
-    # globs.blurrer.blur(0)
-    globs.blurrer_senciel.blur(0)
-
-    glStencilFunc(GL_ALWAYS, 1, 0xff)
-    glStencilOp(GL_KEEP, GL_KEEP, GL_REPLACE)
-    glColorMask(0, 0, 0, 0)
-    globs.meshes[0].draw(toDraw=globs.translucentitems)
-    glColorMask(1, 1, 1, 1)
-
-    glStencilFunc(GL_ALWAYS, 0, 0xff)
-    glStencilOp(GL_KEEP, GL_KEEP, GL_REPLACE)
-    globs.meshes[0].draw(toDraw=globs.nontranslucentitems)
-
-    glStencilFunc(GL_EQUAL, 1, 0xff)
-    glStencilOp(GL_KEEP, GL_KEEP, GL_KEEP)
-    glDisable(GL_DEPTH_TEST)
-    globs.fboprog.use()
-    globs.fbo2.texture.bind(0)
-    globs.fsq.draw()
-
-    glEnable(GL_DEPTH_TEST)
-    globs.prog.use()
-    globs.meshes[0].draw(toDraw=globs.translucentitems)
-
-    glStencilFunc(GL_ALWAYS, 0, 0xff)
-
-    globs.particle.draw()
-
-    globs.skyboxprog.use()
-    globs.skyboxTexture.bind(7)
-    globs.cubeMesh.draw()
+    # glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT)
+    # glStencilFunc(GL_ALWAYS, 1, ~0)
+    # glStencilOp(GL_KEEP, GL_KEEP, GL_KEEP)
+    # # globs.fbosharp.setAsRenderTarget(True)
+    # BufferManager.bind()
+    # globs.prog.use()
+    # globs.camera.setUniforms()
+    # Program.setUniform("forceColorFlag", 0.0)
+    # Program.setUniform("forceColor", vec4(0.0, 0.0, 0.0, 0.0))
+    # Program.setUniform("alphaFactor", 1.0)
+    # Program.setUniform("animationFrame", 1.0)
+    # Program.setUniform("worldMatrix", mat4.identity())
+    # Program.setUniform("focalrange", globs.focalRange)
+    # Program.setUniform("testDepth", 0.0)
+    # Program.setUniform("elapsed", 0.0)
+    # globs.indoormap.bind(7)
+    #
+    # glStencilFunc(GL_ALWAYS, 0, 0xff)
+    # glStencilOp(GL_KEEP, GL_KEEP, GL_KEEP)
+    #
+    # globs.fbo1.setAsRenderTarget(True)
+    # globs.meshes[0].draw(toDraw=globs.translucentitems)
+    # globs.fbo1.unsetAsRenderTarget()
+    #
+    # globs.fbo2.setAsRenderTarget(True)
+    # glColorMask(0, 0, 0, 0)
+    # glDepthMask(0)
+    # glStencilFunc(GL_ALWAYS, 1, 0xff)
+    # glStencilOp(GL_KEEP, GL_KEEP, GL_REPLACE)
+    # globs.meshes[0].draw(toDraw=globs.translucentitems)
+    #
+    # glColorMask(1, 1, 1, 1)
+    # glDepthMask(1)
+    #
+    # glStencilFunc(GL_EQUAL, 1, 0xff)
+    # glStencilOp(GL_KEEP, GL_KEEP, GL_KEEP)
+    #
+    # globs.fbo1.depthtexture.bind(15)
+    # Program.setUniform("testDepth", 1.0)
+    # globs.meshes[0].draw(toDraw=globs.nontranslucentitems)
+    # Program.setUniform("testDepth", 0.0)
+    # # globs.fbo1.depthtexture.unbind(15)
+    #
+    # globs.fbo2.unsetAsRenderTarget()
+    #
+    # # globs.fbo2.dump("test")
+    #
+    # glStencilFunc(GL_ALWAYS, 0, 0xff)
+    # glStencilOp(GL_KEEP, GL_KEEP, GL_KEEP)
+    # # globs.blurrer.blur(0)
+    # globs.blurrer_senciel.blur(0)
+    #
+    # glStencilFunc(GL_ALWAYS, 1, 0xff)
+    # glStencilOp(GL_KEEP, GL_KEEP, GL_REPLACE)
+    # glColorMask(0, 0, 0, 0)
+    # globs.meshes[0].draw(toDraw=globs.translucentitems)
+    # glColorMask(1, 1, 1, 1)
+    #
+    # glStencilFunc(GL_ALWAYS, 0, 0xff)
+    # glStencilOp(GL_KEEP, GL_KEEP, GL_REPLACE)
+    # globs.meshes[0].draw(toDraw=globs.nontranslucentitems)
+    #
+    # glStencilFunc(GL_EQUAL, 1, 0xff)
+    # glStencilOp(GL_KEEP, GL_KEEP, GL_KEEP)
+    # glDisable(GL_DEPTH_TEST)
+    # globs.fboprog.use()
+    # globs.fbo2.texture.bind(0)
+    # globs.fsq.draw()
+    #
+    # glEnable(GL_DEPTH_TEST)
+    # globs.prog.use()
+    # globs.meshes[0].draw(toDraw=globs.translucentitems)
+    #
+    # glStencilFunc(GL_ALWAYS, 0, 0xff)
+    #
+    # globs.particle.draw()
+    #
+    # globs.skyboxprog.use()
+    # globs.skyboxTexture.bind(7)
+    # globs.cubeMesh.draw()
 
     # globs.fbosharp.unsetAsRenderTarget()
     # globs.fboblurry.setAsRenderTarget(False)
