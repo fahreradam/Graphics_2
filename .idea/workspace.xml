@@ -1,0 +1,491 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="66e935a2-6865-4bfe-9b95-745e1c295c42" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/Graphics_2.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bigassets/Thumbs.db" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shaders/tmfs.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shaders/tmvs.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/framework.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BillboardManager.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blurrer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Buffer.py" beforeDir="false" afterPath="$PROJECT_DIR$/Buffer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BufferManager.py" beforeDir="false" afterPath="$PROJECT_DIR$/BufferManager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BufferTexture.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Camera.py" beforeDir="false" afterPath="$PROJECT_DIR$/Camera.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataTexture2DArray.py" beforeDir="false" afterPath="$PROJECT_DIR$/DataTexture2DArray.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Environment.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Framebuffer.py" beforeDir="false" afterPath="$PROJECT_DIR$/Framebuffer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FullScreenQuad.py" beforeDir="false" afterPath="$PROJECT_DIR$/FullScreenQuad.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GLTFMesh.py" beforeDir="false" afterPath="$PROJECT_DIR$/GLTFMesh.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Globals.py" beforeDir="false" afterPath="$PROJECT_DIR$/Globals.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ImageTexture2DArray.py" beforeDir="false" afterPath="$PROJECT_DIR$/ImageTexture2DArray.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ImageTextureCube.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lights.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lights.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Mesh.py" beforeDir="false" afterPath="$PROJECT_DIR$/Mesh.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParticleSystem.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Program.py" beforeDir="false" afterPath="$PROJECT_DIR$/Program.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sampler.py" beforeDir="false" afterPath="$PROJECT_DIR$/Sampler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StateMachine.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Text.py" beforeDir="false" afterPath="$PROJECT_DIR$/Text.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Texture2DArray.py" beforeDir="false" afterPath="$PROJECT_DIR$/Texture2DArray.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Turned in projects/Alpha.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Turned in projects/Bumpmapping.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Turned in projects/Camera.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Turned in projects/Depth.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Turned in projects/DepthofField.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Turned in projects/Drawing 1.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Turned in projects/Drawing 2.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Turned in projects/Drawing 3.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Turned in projects/Indexed.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Turned in projects/Lighting 1.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Turned in projects/Lighting 2.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Turned in projects/Mesh.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Turned in projects/PBR.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Turned in projects/ParticleSystem.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Turned in projects/Perspective.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Turned in projects/Skybox.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Turned in projects/Stencil_Buffer.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Turned in projects/Texture 2.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Turned in projects/Texture 3.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Turned in projects/Transforms 2.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Turned in projects/Transforms.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Turned in projects/Uniforms.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/about.txt" beforeDir="false" afterPath="$PROJECT_DIR$/assets/about.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/back.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/biohazard.ora" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/biohazard.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bottom.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bullet.mtl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bullet.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bullet.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/consolefont24.ora" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/cube.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/cube.gltf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/cubemap.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/drawing.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/fontsheetU.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/front.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/left.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/lightpos.txt" beforeDir="false" afterPath="$PROJECT_DIR$/assets/lightpos.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/lung.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/nova.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/nx.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/ny.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/nz.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/px.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/py.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/pz.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/right.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/smoke.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/spiro.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/star.mtl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/star.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/star.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/stickfigure.mtl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/stickfigure.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/stickfiguretexture.ora" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/stickfiguretexture.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tester.mtl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tester.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tester.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/top.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/virus.mtl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/virus.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/white-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/white.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets/kitchen.gltf" beforeDir="false" afterPath="$PROJECT_DIR$/bigassets/kitchen.gltf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/backsplashbumpmap.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/backsplashtile.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/bailey.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/black-grey70.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/black-grey75.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/black-white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/black.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/blueglass.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/booktexture.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/booktexture2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/bowl.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/brass.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/brickbumpmap.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/brickcolor.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/brightgreen.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/ceiling.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/ceilingbumpmap.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/clockface.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/cream.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/darkcream.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/darkergreen.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/darkwood3-bumpmap.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/darkwood3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/digitalTime.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/floorbumpmap.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/generatedmarble.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/grass1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/greenrug.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/grey00-grey15_png.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/grey00-grey45.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/grey00-grey50.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/grey00-grey65.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/grey00-grey70.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/grey00-grey75.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/grey00-grey85.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/grey00-grey90.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/grey00-white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/grey00.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/grey00_png-grey15_png.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/grey05-grey50.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/grey05-grey60-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/grey05-grey60.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/grey05.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/grey10-black.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/grey10-grey70.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/grey10.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/grey15.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/grey15_png-grey35.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/grey20.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/grey25-grey35.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/grey25.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/grey30-grey25.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/grey30.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/grey35.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/grey40-grey10.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/grey40.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/grey45.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/grey50-grey10.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/grey50-grey15_png.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/grey50.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/grey55-grey10.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/grey60-grey10.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/grey60.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/grey65-grey15_png.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/grey65-grey85.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/grey65.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/grey65_png-grey15_png.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/grey70-grey20.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/grey70.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/grey707070.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/grey75-grey10.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/grey75.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/grey85-grey05.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/grey85.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/grey90-grey05.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/grey90.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/grey95-grey10.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/grey95.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/kitchen-Material.001.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/kitchen-Material.002.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/kitchen-Material.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/kitchen-backsplashTile.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/kitchen-blackMetal.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/kitchen-black_dull_metal.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/kitchen-blackrubber.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/kitchen-blueglass.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/kitchen-book1.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/kitchen-book2.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/kitchen-bowl.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/kitchen-bricks.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/kitchen-cabinetWood.001.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/kitchen-cabinetWood.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/kitchen-ceiling.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/kitchen-cement.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/kitchen-ceramic.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/kitchen-chrome.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/kitchen-cinderblock.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/kitchen-clay.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/kitchen-clockface.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/kitchen-copper.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/kitchen-countertop.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/kitchen-digitalTime.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/kitchen-doorBrass.001.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/kitchen-doorBrass.002.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/kitchen-doorBrass.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/kitchen-doorWood.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/kitchen-exteriorwood.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/kitchen-floor.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/kitchen-fridgeGasket.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/kitchen-fridgeSteel.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/kitchen-grass.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/kitchen-greenleather.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/kitchen-grey40Plastic.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/kitchen-grey70plastic.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/kitchen-lampshade_inside.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/kitchen-lampshade_outside.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/kitchen-letters.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/kitchen-lightbulb.001.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/kitchen-lightbulb.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/kitchen-newspaper.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/kitchen-paper.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/kitchen-picture.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/kitchen-picture2.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/kitchen-roughgold.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/kitchen-shingles.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/kitchen-shinyredmetal.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/kitchen-siding.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/kitchen-stoveLabels.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/kitchen-stoveLabels2.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/kitchen-stovetop.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/kitchen-walls.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/kitchen-woodLogs.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/kitchen.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/kitchen.gltf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/kitchen.mtl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/leatherbumpmap.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/letters2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/lightblue2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/mediumgreen.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/newspaper.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/orange.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/paper.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/readme.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/red.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/shinglesbumpmap.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/sidingbumpmap.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/stainlessSteel.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/stool.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/stovelabel.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/stovelabel2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/terracotta.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/tile.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/tilebumpmap.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/towel.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/vasebumpmap.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/white-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/white.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/wood3b.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigassets_old/yellowflower.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/README.txt" beforeDir="false" afterPath="$PROJECT_DIR$/bin/README.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/SDL2.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/SDL2.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/about.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/etgg2801.py" beforeDir="false" afterPath="$PROJECT_DIR$/etgg2801.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gl.py" beforeDir="false" afterPath="$PROJECT_DIR$/gl.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/glconstants.py" beforeDir="false" afterPath="$PROJECT_DIR$/glconstants.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/image.py" beforeDir="false" afterPath="$PROJECT_DIR$/image.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lab.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/math2801.py" beforeDir="false" afterPath="$PROJECT_DIR$/math2801.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mkzip.py" beforeDir="false" afterPath="$PROJECT_DIR$/mkzip.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pysdl2/AUTHORS.txt" beforeDir="false" afterPath="$PROJECT_DIR$/pysdl2/AUTHORS.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pysdl2/COPYING.txt" beforeDir="false" afterPath="$PROJECT_DIR$/pysdl2/COPYING.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pysdl2/README.rst" beforeDir="false" afterPath="$PROJECT_DIR$/pysdl2/README.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pysdl2/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/pysdl2/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pysdl2/doc/copying-2018.rst" beforeDir="false" afterPath="$PROJECT_DIR$/pysdl2/doc/copying-2018.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pysdl2/doc/copying.rst" beforeDir="false" afterPath="$PROJECT_DIR$/pysdl2/doc/copying.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pysdl2/modifications.txt" beforeDir="false" afterPath="$PROJECT_DIR$/pysdl2/modifications.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pysdl2/sdl2/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/pysdl2/sdl2/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pysdl2/sdl2/audio.py" beforeDir="false" afterPath="$PROJECT_DIR$/pysdl2/sdl2/audio.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pysdl2/sdl2/blendmode.py" beforeDir="false" afterPath="$PROJECT_DIR$/pysdl2/sdl2/blendmode.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pysdl2/sdl2/clipboard.py" beforeDir="false" afterPath="$PROJECT_DIR$/pysdl2/sdl2/clipboard.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pysdl2/sdl2/cpuinfo.py" beforeDir="false" afterPath="$PROJECT_DIR$/pysdl2/sdl2/cpuinfo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pysdl2/sdl2/dll.py" beforeDir="false" afterPath="$PROJECT_DIR$/pysdl2/sdl2/dll.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pysdl2/sdl2/endian.py" beforeDir="false" afterPath="$PROJECT_DIR$/pysdl2/sdl2/endian.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pysdl2/sdl2/error.py" beforeDir="false" afterPath="$PROJECT_DIR$/pysdl2/sdl2/error.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pysdl2/sdl2/events.py" beforeDir="false" afterPath="$PROJECT_DIR$/pysdl2/sdl2/events.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pysdl2/sdl2/ext/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/pysdl2/sdl2/ext/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pysdl2/sdl2/ext/algorithms.py" beforeDir="false" afterPath="$PROJECT_DIR$/pysdl2/sdl2/ext/algorithms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pysdl2/sdl2/ext/array.py" beforeDir="false" afterPath="$PROJECT_DIR$/pysdl2/sdl2/ext/array.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pysdl2/sdl2/ext/color.py" beforeDir="false" afterPath="$PROJECT_DIR$/pysdl2/sdl2/ext/color.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pysdl2/sdl2/ext/colorpalettes.py" beforeDir="false" afterPath="$PROJECT_DIR$/pysdl2/sdl2/ext/colorpalettes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pysdl2/sdl2/ext/common.py" beforeDir="false" afterPath="$PROJECT_DIR$/pysdl2/sdl2/ext/common.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pysdl2/sdl2/ext/compat.py" beforeDir="false" afterPath="$PROJECT_DIR$/pysdl2/sdl2/ext/compat.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pysdl2/sdl2/ext/draw.py" beforeDir="false" afterPath="$PROJECT_DIR$/pysdl2/sdl2/ext/draw.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pysdl2/sdl2/ext/ebs.py" beforeDir="false" afterPath="$PROJECT_DIR$/pysdl2/sdl2/ext/ebs.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pysdl2/sdl2/ext/events.py" beforeDir="false" afterPath="$PROJECT_DIR$/pysdl2/sdl2/ext/events.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pysdl2/sdl2/ext/font.py" beforeDir="false" afterPath="$PROJECT_DIR$/pysdl2/sdl2/ext/font.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pysdl2/sdl2/ext/gui.py" beforeDir="false" afterPath="$PROJECT_DIR$/pysdl2/sdl2/ext/gui.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pysdl2/sdl2/ext/image.py" beforeDir="false" afterPath="$PROJECT_DIR$/pysdl2/sdl2/ext/image.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pysdl2/sdl2/ext/particles.py" beforeDir="false" afterPath="$PROJECT_DIR$/pysdl2/sdl2/ext/particles.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pysdl2/sdl2/ext/pixelaccess.py" beforeDir="false" afterPath="$PROJECT_DIR$/pysdl2/sdl2/ext/pixelaccess.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pysdl2/sdl2/ext/resources.py" beforeDir="false" afterPath="$PROJECT_DIR$/pysdl2/sdl2/ext/resources.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pysdl2/sdl2/ext/sprite.py" beforeDir="false" afterPath="$PROJECT_DIR$/pysdl2/sdl2/ext/sprite.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pysdl2/sdl2/ext/surface.py" beforeDir="false" afterPath="$PROJECT_DIR$/pysdl2/sdl2/ext/surface.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pysdl2/sdl2/ext/window.py" beforeDir="false" afterPath="$PROJECT_DIR$/pysdl2/sdl2/ext/window.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pysdl2/sdl2/filesystem.py" beforeDir="false" afterPath="$PROJECT_DIR$/pysdl2/sdl2/filesystem.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pysdl2/sdl2/gamecontroller.py" beforeDir="false" afterPath="$PROJECT_DIR$/pysdl2/sdl2/gamecontroller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pysdl2/sdl2/gesture.py" beforeDir="false" afterPath="$PROJECT_DIR$/pysdl2/sdl2/gesture.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pysdl2/sdl2/haptic.py" beforeDir="false" afterPath="$PROJECT_DIR$/pysdl2/sdl2/haptic.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pysdl2/sdl2/hints.py" beforeDir="false" afterPath="$PROJECT_DIR$/pysdl2/sdl2/hints.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pysdl2/sdl2/joystick.py" beforeDir="false" afterPath="$PROJECT_DIR$/pysdl2/sdl2/joystick.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pysdl2/sdl2/keyboard.py" beforeDir="false" afterPath="$PROJECT_DIR$/pysdl2/sdl2/keyboard.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pysdl2/sdl2/keycode.py" beforeDir="false" afterPath="$PROJECT_DIR$/pysdl2/sdl2/keycode.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pysdl2/sdl2/loadso.py" beforeDir="false" afterPath="$PROJECT_DIR$/pysdl2/sdl2/loadso.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pysdl2/sdl2/log.py" beforeDir="false" afterPath="$PROJECT_DIR$/pysdl2/sdl2/log.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pysdl2/sdl2/messagebox.py" beforeDir="false" afterPath="$PROJECT_DIR$/pysdl2/sdl2/messagebox.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pysdl2/sdl2/mouse.py" beforeDir="false" afterPath="$PROJECT_DIR$/pysdl2/sdl2/mouse.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pysdl2/sdl2/pixels.py" beforeDir="false" afterPath="$PROJECT_DIR$/pysdl2/sdl2/pixels.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pysdl2/sdl2/platform.py" beforeDir="false" afterPath="$PROJECT_DIR$/pysdl2/sdl2/platform.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pysdl2/sdl2/power.py" beforeDir="false" afterPath="$PROJECT_DIR$/pysdl2/sdl2/power.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pysdl2/sdl2/rect.py" beforeDir="false" afterPath="$PROJECT_DIR$/pysdl2/sdl2/rect.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pysdl2/sdl2/render.py" beforeDir="false" afterPath="$PROJECT_DIR$/pysdl2/sdl2/render.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pysdl2/sdl2/rwops.py" beforeDir="false" afterPath="$PROJECT_DIR$/pysdl2/sdl2/rwops.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pysdl2/sdl2/scancode.py" beforeDir="false" afterPath="$PROJECT_DIR$/pysdl2/sdl2/scancode.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pysdl2/sdl2/sdlgfx.py" beforeDir="false" afterPath="$PROJECT_DIR$/pysdl2/sdl2/sdlgfx.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pysdl2/sdl2/sdlimage.py" beforeDir="false" afterPath="$PROJECT_DIR$/pysdl2/sdl2/sdlimage.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pysdl2/sdl2/sdlmixer.py" beforeDir="false" afterPath="$PROJECT_DIR$/pysdl2/sdl2/sdlmixer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pysdl2/sdl2/sdlttf.py" beforeDir="false" afterPath="$PROJECT_DIR$/pysdl2/sdl2/sdlttf.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pysdl2/sdl2/shape.py" beforeDir="false" afterPath="$PROJECT_DIR$/pysdl2/sdl2/shape.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pysdl2/sdl2/stdinc.py" beforeDir="false" afterPath="$PROJECT_DIR$/pysdl2/sdl2/stdinc.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pysdl2/sdl2/surface.py" beforeDir="false" afterPath="$PROJECT_DIR$/pysdl2/sdl2/surface.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pysdl2/sdl2/syswm.py" beforeDir="false" afterPath="$PROJECT_DIR$/pysdl2/sdl2/syswm.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pysdl2/sdl2/timer.py" beforeDir="false" afterPath="$PROJECT_DIR$/pysdl2/sdl2/timer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pysdl2/sdl2/touch.py" beforeDir="false" afterPath="$PROJECT_DIR$/pysdl2/sdl2/touch.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pysdl2/sdl2/version.py" beforeDir="false" afterPath="$PROJECT_DIR$/pysdl2/sdl2/version.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pysdl2/sdl2/video.py" beforeDir="false" afterPath="$PROJECT_DIR$/pysdl2/sdl2/video.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pysdl2/sdl2/vulkan.py" beforeDir="false" afterPath="$PROJECT_DIR$/pysdl2/sdl2/vulkan.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pysdl2/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/pysdl2/setup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shaders/about.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shaders/billboardfs.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shaders/billboardvs.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shaders/blurfs.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shaders/blurvs.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shaders/dos.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shaders/fbofs.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shaders/fbovs.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shaders/fs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/shaders/fs.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shaders/pscs.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shaders/skyboxfs.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shaders/skyboxvs.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shaders/textfs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/shaders/textfs.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shaders/textvs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/shaders/textvs.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shaders/uniforms.txt" beforeDir="false" afterPath="$PROJECT_DIR$/shaders/uniforms.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shaders/vs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/shaders/vs.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/texture.py" beforeDir="false" afterPath="$PROJECT_DIR$/texture.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="27ydwH7Ln2mczxb1oqvFuatACxM" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\afahrer2\source\repos\fahreradam\Graphics_2" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.mkzip">
+    <configuration name="Unnamed" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="Graphics_2" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="D:\Program Files\Python39\python.exe" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Graphics_2" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="mkzip" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Graphics_2" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mkzip.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.Unnamed" />
+      <item itemvalue="Python.main" />
+      <item itemvalue="Python.mkzip" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.mkzip" />
+        <item itemvalue="Python.main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="66e935a2-6865-4bfe-9b95-745e1c295c42" name="Changes" comment="" />
+      <created>1650296497395</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1650296497395</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+</project>

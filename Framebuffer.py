@@ -3,7 +3,6 @@ import array
 from gl import *
 from glconstants import *
 from DataTexture2DArray import *
-import image
 
 
 class FramebufferBase:

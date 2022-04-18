@@ -75,7 +75,7 @@ class Mesh:
             
         self.vertexOffset, self.indexStart = BufferManager.addIndexedData(
             positiondata=remappedPosData,
-            basetexturedata=remappedTexData,
+            texturedata=remappedTexData,
             normaldata=remappedNormData,
             indexdata=remappedIndices
         )

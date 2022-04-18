@@ -11,11 +11,6 @@ nbuff=None
 idata=[]
 ibuff=None
 
-bumpdata = []
-bumpbuff=None
-tandata = []
-tanbuff=None
-
 def addData( newpdata ):
     global vao, pdata
     if vao != 0:
@@ -25,38 +20,31 @@ def addData( newpdata ):
     pdata += newpdata
     return oldSize
  
-def addIndexedData(*, positiondata, basetexturedata, bumptexturedata, normaldata, indexdata, tangentdata):
-    global vao, pdata, tdata, idata, ndata, bumpdata, tandata
+def addIndexedData(*, positiondata, texturedata, normaldata, indexdata):
+    global vao, pdata, tdata, idata, ndata
     if vao != 0:
         raise RuntimeError("Cannot add data after pushToGPU() has been called")
     assert type(positiondata) == list
-    assert type(basetexturedata) == list
-    assert type(bumptexturedata) == list
+    assert type(texturedata) == list       
     assert type(normaldata) == list       
     assert type(indexdata) == list
-    assert type(tangentdata) == list
-    assert len(positiondata)//3 == len(basetexturedata)//2
+    assert len(positiondata)//3 == len(texturedata)//2    
     assert len(positiondata)//3 == len(normaldata)//3    
     startingVertexNumber = len(pdata)//3
     indexStart = len(idata)
     pdata += positiondata
-    tdata += basetexturedata
-    bumpdata += bumptexturedata
-    tandata += tangentdata
+    tdata += texturedata          
     ndata += normaldata
     idata += indexdata
     return startingVertexNumber,indexStart*4
     
 def pushToGPU():
     global vao
-    global pbuff,tbuff,ibuff, bumpbuff, tanbuff
-    global pdata,tdata,idata, tandata, bumpdata
+    global pbuff,tbuff,ibuff
+    global pdata,tdata,idata
     pbuff = Buffer( array.array( "f", pdata ) )
     tbuff = Buffer( array.array( "f", tdata ) )    
-    nbuff = Buffer( array.array( "f", ndata ) )
-    bumpbuff = Buffer( array.array( "f", bumpdata))
-    tanbuff = Buffer( array.array( "f", tandata))
-
+    nbuff = Buffer( array.array( "f", ndata ) )    
     ibuff = Buffer( array.array( "I", idata ) )
     tmp = array.array("I",[0])
     glGenVertexArrays(1,tmp)
@@ -71,13 +59,7 @@ def pushToGPU():
     glVertexAttribPointer( 1, 2, GL_FLOAT, False, 2*4, 0 )  
     nbuff.bind(GL_ARRAY_BUFFER)        
     glEnableVertexAttribArray(2)            
-    glVertexAttribPointer( 2, 3, GL_FLOAT, False, 3*4, 0 )
-    tanbuff.bind(GL_ARRAY_BUFFER)
-    glEnableVertexAttribArray(3)
-    glVertexAttribPointer(3, 4, GL_FLOAT, False, 4 * 4, 0)
-    bumpbuff.bind(GL_ARRAY_BUFFER)
-    glEnableVertexAttribArray(4)
-    glVertexAttribPointer(4, 2, GL_FLOAT, False, 2 * 4, 0)
+    glVertexAttribPointer( 2, 3, GL_FLOAT, False, 3*4, 0 )  
 
 
 def bind():

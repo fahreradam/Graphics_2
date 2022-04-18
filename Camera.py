@@ -3,7 +3,7 @@ from Program import *
 import math
 
 class Camera:
-    def __init__(self, eye, coi, up, hither=0.1, yon=500, fov=30):
+    def __init__(self,eye,coi,up):
         self.lookAt(eye,coi,up)
         self.hither=0.01
         self.yon=500

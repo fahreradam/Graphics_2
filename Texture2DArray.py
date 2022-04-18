@@ -1,5 +1,5 @@
 from glconstants import *
-from texture import Texture
+from Texture import Texture
 
 class Texture2DArray(Texture):
     def __init__(self,w,h,slices):
